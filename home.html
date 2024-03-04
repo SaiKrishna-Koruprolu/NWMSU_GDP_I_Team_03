@@ -1,35 +1,102 @@
 <!DOCTYPE html>
-<html lang="en"
-  xmlns:th="http://www.thymeleaf.org"
->
-<head>
-    <meta charset="UTF-8">
-    <title>Registration and Login System</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-          crossorigin="anonymous">
-</head>
+<html>
+    <head>
+        <th:block th:include="~{/includes/header}"></th:block>
+    </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Design Select</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/register}">Logout</a>
-                </li>
-            </ul>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__nav__option">
+        <a href="#">Sign in</a>
+            <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+            <div class="price">$0.00</div>
         </div>
+        <div id="mobile-menu-wrap"></div>
     </div>
-</nav>
-<div class="container">
-    <div class="row">
-        <h1 class="text-center"> Welcome to Design Select </h1>
-    </div>
-</div>
+    <!-- Offcanvas Menu End -->
+
+    <th:block th:include="~{/includes/nav}"></th:block>
+
+    <section class="hero">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>Trendy Collection</h6>
+                                <h2>Customize your own design</h2>
+                                <p>Customize your own design for your cloths and look like designerware</p>
+                                <a href="/customize" class="primary-btn">Shop now 
+                                  <span class="arrow_right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </section>
+    
+    <section class="banner spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 offset-lg-4">
+                    <div class="banner__item">
+                        <div class="banner__item__pic">
+                            <img src="img/banner/banner-1.jpg" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>Women gallery</h2>
+                            <a href="/collections/women">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="banner__item banner__item--middle">
+                        <div class="banner__item__pic">
+                            <img src="img/banner/banner-2.jpg" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>Kids gallery</h2>
+                            <a href="/collections/kids">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 offset-lg-4">
+                  <div class="banner__item">
+                      <div class="banner__item__pic">
+                          <img src="img/banner/banner-3.jpg" alt="">
+                      </div>
+                      <div class="banner__item__text">
+                          <h2>Model gallery</h2>
+                          <a href="/collections/girls">Shop now</a>
+                        </div>
+                  </div>
+              </div>
+              
+                <div class="col-lg-5">
+                  <div class="banner__item banner__item--middle">
+                      <div class="banner__item__pic">
+                          <img src="img/banner/banner-4.jpg" alt="">
+                      </div>
+                      <div class="banner__item__text">
+                          <h2>Collections</h2>
+                          <a href="/collections/new-arrivals">Shop now</a>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    
+    <th:block th:include="~{/includes/footer}"></th:block>
+    
 </body>
 </html>
