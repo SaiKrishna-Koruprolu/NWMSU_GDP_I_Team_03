@@ -66,7 +66,7 @@
                       <div class="banner__item__text">
                           <h2>Collections</h2>
                           <a href="#">Shop now</a>
-                      </dive>
+                      </div>
                   </div>
               </div>
             </div>
