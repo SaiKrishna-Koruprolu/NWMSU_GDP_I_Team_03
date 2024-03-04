@@ -66,11 +66,13 @@
                       <div class="banner__item__text">
                           <h2>Collections</h2>
                           <a href="#">Shop now</a>
-                      </div>
+                      </dive>
                   </div>
               </div>
             </div>
         </div>
     </section>
     
+    
+
     <%@include file="footer.jsp"%>
