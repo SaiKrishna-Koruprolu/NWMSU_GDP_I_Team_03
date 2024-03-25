@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <th:block th:include="~{/includes/header}"></th:block>
+    </head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+      <!-- Offcanvas Menu Begin -->
+      <div class="offcanvas-menu-overlay"></div>
+      <div class="offcanvas-menu-wrapper">
+          <div class="offcanvas__nav__option">
+            <a href="#">Sign in</a>
+              <a href="#"><img src="img/icon/heart.png" alt=""></a>
+              <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+              <div class="price">$0.00</div>
+          </div>
+          <div id="mobile-menu-wrap"></div>
+      </div>
+      <!-- Offcanvas Menu End -->
+  
+      <th:block th:include="~{/includes/nav}"></th:block>
+
+    <section class="shop spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="shop__sidebar">
+                        <div class="shop__sidebar__accordion">
+                            <div class="accordion" id="accordionExample">
+                               
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                    </div>
+                                    <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__price">
+                                                <ul>
+                                                    <li><a href="">$0.00 - $50.00</a></li>
+                                                    <li><a href="">$50.00 - $100.00</a></li>
+                                                    <li><a href="">$100.00 - $150.00</a></li>
+                                                    <li><a href="">$150.00 - $200.00</a></li>
+                                                    <li><a href="">$200.00 - $250.00</a></li>
+                                                    <li><a href="">$250.00+</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseFour">Size</a>
+                                    </div>
+                                    <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__size">
+                                                <label for="xs">xs
+                                                    <input type="radio" id="xs">
+                                                </label>
+                                                <label for="sm">s
+                                                    <input type="radio" id="sm">
+                                                </label>
+                                                <label for="md">m
+                                                    <input type="radio" id="md">
+                                                </label>
+                                                <label for="xl">xl
+                                                    <input type="radio" id="xl">
+                                                </label>
+                                                <label for="2xl">2xl
+                                                    <input type="radio" id="2xl">
+                                                </label>
+                                                <label for="xxl">xxl
+                                                    <input type="radio" id="xxl">
+                                                </label>
+                                                <label for="3xl">3xl
+                                                    <input type="radio" id="3xl">
+                                                </label>
+                                                <label for="4xl">4xl
+                                                    <input type="radio" id="4xl">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                         
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <form action="" class="form">
+                        <div class="row">
+                            <input type="text" id="search" name="search" class="form-control" placeholder="search"/>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                    <div class="shop__product__option">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="shop__product__option__left">
+                                    <p>Showing 1-6 of 6 results</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="shop__product__option__right">
+                                    <p>Sort by Price:</p>
+                                    <select>
+                                        <option value="">Low To High</option>
+                                        <option value="">$0 - $55</option>
+                                        <option value="">$55 - $100</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6" th:each="product: ${products}">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" th:data-setbg="${product.image}">
+                                </div>
+                                <div class="product__item__text">
+                                    <h6 th:text="${product.name}"></h6>
+                                    <a th:href="@{'/add-to-cart?productId=' + ${product.id}}" class="add-cart">+ Add To Cart</a>
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </div>
+                                    <h5 th:text="${product.price}"></h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer Section Begin -->
+    <th:block th:include="~{/includes/footer}"></th:block>
+    
+</body>
+</html>
