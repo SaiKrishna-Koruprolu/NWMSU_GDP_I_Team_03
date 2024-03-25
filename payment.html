@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Gateway Example</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <form id="payment-form">
+        <div id="card-element">
+         
+        </div>
+        <button id="submit-button">Submit Payment</button>
+    </form>
+
+    <script>
+        var stripe = Stripe('your_publishable_key'); 
+        var elements = stripe.elements();
+        var card = elements.create('card');
+        card.mount('#card-element');
+
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            stripe.createToken(card).then(function(result) {
+                if (result.error) {
+                   
+                    console.log(result.error.message);
+                } else {
+                    
+                    console.log(result.token);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
