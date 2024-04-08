@@ -1,38 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Payment Gateway Example</title>
-    <script src="https://js.stripe.com/v3/"></script>
+  <meta charset="UTF-8">
+  <title>Payment Gateway Example</title>
+  <script src="https://js.stripe.com/v3/"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">
 </head>
-<body>
-    <form id="payment-form">
-        <div id="card-element">
-         
-        </div>
-        <button id="submit-button">Submit Payment</button>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-4">Payment Gateway Example</h1>
+    <form id="payment-form" class="space-y-4">
+      <div id="card-element" class="border rounded-lg p-3"></div>
+      <button id="submit-button" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Submit Payment</button>
     </form>
+  </div>
 
-    <script>
-        var stripe = Stripe('your_publishable_key'); 
-        var elements = stripe.elements();
-        var card = elements.create('card');
-        card.mount('#card-element');
+  <script>
+    var stripe = Stripe('your_publishable_key');
+    var elements = stripe.elements();
+    var card = elements.create('card', {
+      style: {
+        base: {
+          iconColor: '#c4f0ff',
+          color: '#32325d',
+          fontWeight: '500',
+          fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+          fontSize: '16px',
+          fontSmoothing: 'antialiased',
+          ':-webkit-autofill': {
+            color: '#32325d',
+          },
+          '::placeholder': {
+            color: '#87bbfd',
+          },
+        },
+        invalid: {
+          iconColor: '#FFC7EE',
+          color: '#FFC7EE',
+        },
+      },
+    });
+    card.mount('#card-element');
 
-        var form = document.getElementById('payment-form');
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            stripe.createToken(card).then(function(result) {
-                if (result.error) {
-                   
-                    console.log(result.error.message);
-                } else {
-                    
-                    console.log(result.token);
-                }
-            });
-        });
-    </script>
+    var form = document.getElementById('payment-form');
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      stripe.createToken(card).then(function(result) {
+        if (result.error) {
+          console.log(result.error.message);
+        } else {
+          console.log(result.token);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
