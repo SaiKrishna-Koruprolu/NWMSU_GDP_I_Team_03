@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <th:block th:include="~{/includes/header}"></th:block>
+    </head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+      <!-- Offcanvas Menu Begin -->
+      <div class="offcanvas-menu-overlay"></div>
+      <div class="offcanvas-menu-wrapper">
+          <div class="offcanvas__nav__option">
+            <a href="#">Sign in</a>
+              <a href="#"><img src="img/icon/heart.png" alt=""></a>
+              <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+              <div class="price">$0.00</div>
+          </div>
+          <div id="mobile-menu-wrap"></div>
+      </div>
+
+      <!-- Offcanvas Menu End -->
+        <th:block th:include="~{/includes/nav}"></th:block>
+
+        <!-- Shop Details Section Begin -->
+        <section class="shop-details">
+            <div class="product__details__pic">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-9"></div>
+                        <div class="col-lg-6 col-md-9">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                    <!-- <div class="product__details__pic__item">
+                                        <img src="/img/shop-details/product-big-2.png" name="img_model" id="img_model" alt="">
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- <div class="file__upload text-center pt-3">
+                    <form action="#">
+                        <input type="file" accept="image/*" placeholder="choose file" name="file_img" id="file_img" required>
+                        <br>
+                    </form>
+                </div> -->
+            </div>
+
+            <div class="product__details__content">
+                <div class="container">
+                    <form
+                    method="post" 
+                    th:action="@{/update-user-profile}"
+                    class="form-horizontal">
+                    <div class="row d-flex justify-content-center">
+                     
+                        <div class="col-lg-8 col-md-8">
+                            <h6 class="checkout__title">User Details</h6>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>First Name<span>*</span></p>
+                                        <input type="text" name="first_name" id="first_name" placeholder="enter first name" required th:value="${firstname}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Last Name<span>*</span></p>
+                                        <input type="text" name="last_name" id="last_name" placeholder="enter last name" th:value="${lastname}" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="checkout__input">
+                                        <p>Email<span>*</span></p>
+                                        <input type="text" th:value="${email}" name="email" id="email" placeholder="enter your email" required readonly disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 p-3">
+                                    <input type="submit" value="Update" class="btn btn-info" name="submit" id="submit">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </section>
+        <!-- Shop Details Section End -->
+        <th:block th:include="~{/includes/footer}"></th:block>
+</body>
+</html>
