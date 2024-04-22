@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <th:block th:include="~{/includes/header}"></th:block>
+    </head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+   
+    <th:block th:include="~{/includes/nav}"></th:block>
+
+    <!-- Shopping Cart Section Begin -->
+    <section class="shopping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shopping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Qty</th>
+                                    <th>Bid range($)</th>
+                                    <th>Size</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="product: ${products}">
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img th:src="${product.image}" alt="" style="width:75px;height:125px">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6 th:text="${product.title}"></h6>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price" th:text="${product.description}"></td>
+                                   
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <h5 th:text="${product.qty}"></h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <h5 th:text="@{ ${product.min_price} + ' - ' + ${product.max_price} }"></h5>   
+                                        </div>
+                                    </td>
+                                    <td class="cart__price" th:text="${product.size}"></td>
+                                    <td class="cart__price" th:switch="${product.status}">
+                                        <span th:case="0">
+                                             <a class="text-warning" th:href="@{ '/bids/my-bid-open?id=' + ${product.id}}">Open</a>
+                                            </span>
+                                        <span th:case="1" class="text-success">Completed</span>
+                                        <span th:case="2" class="text-danger">Cancelled</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shopping Cart Section End -->
+    <!-- Footer Section Begin -->
+    <th:block th:include="~{/includes/footer}"></th:block>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <th:block th:include="~{/includes/header}"></th:block>
+    </head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__nav__option">
+        <a href="#">Sign in</a>
+            <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+            <div class="price">$0.00</div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <th:block th:include="~{/includes/nav}"></th:block>
+
+    <section class="hero">
+        <div class="hero__slider owl-carousel">
+            <div class="hero__items set-bg" data-setbg="img/hero/hero-1.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>Trendy Collection</h6>
+                                <h2>Customize your own design</h2>
+                                <p>Customize your own design for your cloths and look like designerware</p>
+                                <a href="/customize" class="primary-btn">Shop now 
+                                  <span class="arrow_right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </section>
+    
+    <section class="banner spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7 offset-lg-4">
+                    <div class="banner__item">
+                        <div class="banner__item__pic">
+                            <img src="img/banner/banner-1.jpg" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>Women gallery</h2>
+                            <a href="/collections/women">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="banner__item banner__item--middle">
+                        <div class="banner__item__pic">
+                            <img src="img/banner/banner-2.jpg" alt="">
+                        </div>
+                        <div class="banner__item__text">
+                            <h2>Kids gallery</h2>
+                            <a href="/collections/kids">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 offset-lg-4">
+                  <div class="banner__item">
+                      <div class="banner__item__pic">
+                          <img src="img/banner/banner-3.jpg" alt="">
+                      </div>
+                      <div class="banner__item__text">
+                          <h2>Model gallery</h2>
+                          <a href="/collections/girls">Shop now</a>
+                        </div>
+                  </div>
+              </div>
+              
+                <div class="col-lg-5">
+                  <div class="banner__item banner__item--middle">
+                      <div class="banner__item__pic">
+                          <img src="img/banner/banner-4.jpg" alt="">
+                      </div>
+                      <div class="banner__item__text">
+                          <h2>Collections</h2>
+                          <a href="/collections/new-arrivals">Shop now</a>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
+    
+    <th:block th:include="~{/includes/footer}"></th:block>
+    
+</body>
+</html>
