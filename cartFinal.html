@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <th:block th:include="~{/includes/header}"></th:block>
+    </head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+      <!-- Offcanvas Menu Begin -->
+      <div class="offcanvas-menu-overlay"></div>
+      <div class="offcanvas-menu-wrapper">
+          <div class="offcanvas__nav__option">
+            <a href="#">Sign in</a>
+              <a href="#"><img src="img/icon/heart.png" alt=""></a>
+              <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+              <div class="price">$0.00</div>
+          </div>
+          <div id="mobile-menu-wrap"></div>
+      </div>
+      <!-- Offcanvas Menu End -->
+  
+      <th:block th:include="~{/includes/nav}"></th:block>
+
+    <!-- Shopping Cart Section Begin -->
+    <section class="shopping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="shopping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="cart: ${carts}">
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img th:src="${cart.image}" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6 th:text="${cart.name}"></h6>
+                                            <h5 class="item_price" th:text="@{'$. ' + ${cart.price}}"></h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty-2">
+                                                <input type="text" value="1" id="@{ 'qty_'+ ${cart.id}}" th:name="@{ 'qty_'+ ${cart.id}}">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price tot_price" th:text="@{'$. ' + ${cart.price}}"></td>
+                                    <td class="cart__close"><a th:href="@{'/remove-cart-item?id=' + ${cart.id}}"><i class="fa fa-close"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="continue__btn">
+                                <a href="/collections/new-arrivals">Continue Shopping</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <form action="/payment-page" method="POST">
+                    <div class="cart__total">
+                        <h6>Cart total</h6>
+                        <ul>
+                            <li>Total <span class="cart_total">$. 0.00</span></li>
+                            <input type="hidden" id="cart_total" name="cart_total" value="0.00">
+                        </ul>
+                        <!-- <a href="payment-page" class="primary-btn">Proceed to checkout</a> -->
+                        <input type="submit" class="primary-btn" value="Proceed to checkout">
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shopping Cart Section End -->
+
+    <!-- Footer Section Begin -->
+    <th:block th:include="~{/includes/footer}"></th:block>
+
+</body>
+</html>
